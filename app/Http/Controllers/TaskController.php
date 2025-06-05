@@ -26,14 +26,15 @@ class TaskController extends Controller
         ]);
         
     }
-    public function destroy($id)
+   public function destroy($id)
 {
     $task = Task::find($id);
-    if ($task) {
-        $task->delete();
-        return response()->json(['message' => 'Task deleted successfully']);
+    if (!$task) {
+        return response()->json(['error' => 'Tarefa não encontrada'], 404);
     }
-    return response()->json(['message' => 'Task not found'], 404);
+
+    $task->delete();
+    return response()->json(['message' => 'Tarefa deletada com sucesso'], 200);
 }
 
 }

@@ -1,9 +1,12 @@
 GET http://localhost:8000/api/tasks
 
 ###
-POST http://localhost:8000/api/tasks
+POST http://localhost:8000/api/tasks/1
 Content-Type: application/json
 
 {
     "title": "Estudar PHP"
 }
+###
+curl -X DELETE http://localhost:8000/api/tasks/8
+
